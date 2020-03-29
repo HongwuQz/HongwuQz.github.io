@@ -1,0 +1,112 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><meta name="author" content="洪武"><meta name="renderer" content="webkit"><meta name="copyright" content="洪武"><meta name="keywords" content="洪武的全栈路"><meta name="description" content=""><meta name="Cache-Control" content="no-cache"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>个人介绍 · 洪武の小基地</title><link rel="stylesheet" href="/css/style.css?v=2018.7.9"><link rel="stylesheet" href="/css/animation.css?v=2018.7.9"><link rel="icon" href="/img/assets/hw.ico"><link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css?version=1.5.6"><!-- scripts--><script>(function( w ){
+  "use strict";
+  // rel=preload support test
+  if( !w.loadCSS ){
+    w.loadCSS = function(){};
+  }
+  // define on the loadCSS obj
+  var rp = loadCSS.relpreload = {};
+  // rel=preload feature support test
+  // runs once and returns a function for compat purposes
+  rp.support = (function(){
+    var ret;
+    try {
+      ret = w.document.createElement( "link" ).relList.supports( "preload" );
+    } catch (e) {
+      ret = false;
+    }
+    return function(){
+      return ret;
+    };
+  })();
+
+  // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+  // then change that media back to its intended value on load
+  rp.bindMediaToggle = function( link ){
+    // remember existing media attr for ultimate state, or default to 'all'
+    var finalMedia = link.media || "all";
+
+    function enableStylesheet(){
+      link.media = finalMedia;
+    }
+
+    // bind load handlers to enable media
+    if( link.addEventListener ){
+      link.addEventListener( "load", enableStylesheet );
+    } else if( link.attachEvent ){
+      link.attachEvent( "onload", enableStylesheet );
+    }
+
+    // Set rel and non-applicable media type to start an async request
+    // note: timeout allows this to happen async to let rendering continue in IE
+    setTimeout(function(){
+      link.rel = "stylesheet";
+      link.media = "only x";
+    });
+    // also enable media after 3 seconds,
+    // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+    setTimeout( enableStylesheet, 3000 );
+  };
+
+  // loop through link elements in DOM
+  rp.poly = function(){
+    // double check this to prevent external calls from running
+    if( rp.support() ){
+      return;
+    }
+    var links = w.document.getElementsByTagName( "link" );
+    for( var i = 0; i < links.length; i++ ){
+      var link = links[ i ];
+      // qualify links to those with rel=preload and as=style attrs
+      if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+        // prevent rerunning on link
+        link.setAttribute( "data-loadcss", true );
+        // bind listeners to toggle media back
+        rp.bindMediaToggle( link );
+      }
+    }
+  };
+
+  // if unsupported, run the polyfill
+  if( !rp.support() ){
+    // run once at least
+    rp.poly();
+
+    // rerun poly on an interval until onload
+    var run = w.setInterval( rp.poly, 500 );
+    if( w.addEventListener ){
+      w.addEventListener( "load", function(){
+        rp.poly();
+        w.clearInterval( run );
+      } );
+    } else if( w.attachEvent ){
+      w.attachEvent( "onload", function(){
+        rp.poly();
+        w.clearInterval( run );
+      } );
+    }
+  }
+
+
+  // commonjs
+  if( typeof exports !== "undefined" ){
+    exports.loadCSS = loadCSS;
+  }
+  else {
+    w.loadCSS = loadCSS;
+  }
+}( typeof global !== "undefined" ? global : this ) );</script><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" defer></script><script src="/js/main.js?v=2018.7.9" defer></script><!-- fancybox--><link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script><!-- busuanzi--><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="洪武的全栈路" type="application/atom+xml">
+</head><body><section class="profile-close" id="cxo-profile"><div class="profile-avatar"><i class="fa fa-caret-left"></i><img src="/img/assets/hw.jpg"></div><!--.profile-saying
+  i.fa.fa-comment
+  .saying--><div class="cxo-profile-inner"><div class="profile-name">洪武</div><div class="profile-signature">全栈之路</div><div class="friends"><div>FRIENDS</div><span><a href="//github.com/HongwuQz" target="_black">洪武</a></span><span><a href="//github.com/" target="_black">马俊鹏</a></span><span><a href="//github.com/" target="_black">胡龙</a></span></div><div class="read-progress"></div></div></section><header id="cxo-intro" style="height: 70vh;background-image: url(/img/intro/index-bg.png);"><nav id="cxo-intro-nav"><section><div class="intro-nav-title"><a>洪武の小基地</a></div><div class="intro-nav-label-box"><a href="/">主页</a><a href="/about/">关于</a><a href="/archives/">文章</a><a href="/tags/">标签</a></div><i class="fa fa-bars intro-nav-menu"><div class="intro-nav-drop"><a href="/">主页</a><a href="/about/">关于</a><a href="/archives/">文章</a><a href="/tags/">标签</a></div></i><div class="clear"></div></section></nav><h1 class="post-title">个人介绍</h1><div class="post-intros"><div class="post-intro-meta"><span class="post-intro-time"><i class="post-intro-calendar fa fa-calendar"></i><span>2020-03-29</span></span></div></div></header><article class="cxo-up" id="cxo-content-outer"><section id="cxo-content-inner"><article class="article-entry" id="post"><p>标准00年的孩子，普通双非，大二</p>
+<p><strong>其实从现在浮躁的主节奏里面跳出来，你会发现生活真的很美好，我很享受我现在的生活节奏。</strong></p>
+<h2 id="在学校"><a href="#在学校" class="headerlink" title="在学校"></a>在学校</h2><p><strong>安心负责好学生组织和社团的任务。</strong>在广播台负责每周的线上节目、早晚的广播娱乐和中午新闻节目，每天早上六点多起床，有节目就去做节目，没有就练声；在学生会负责学习部工作；在班里当一个划水的班委（<strong>班长、团支书、学委太负责了，给他们点赞</strong>）</p>
+<p>学校组织的竞赛感兴趣的参加一下，拿点证书和奖品奖金；当一当学校迎新志愿者，去认识一些新朋友，又或者是社区志愿者，跳出舒适圈涨涨见识。</p>
+<p>课程感觉有难度、有挑战、对自己有用、或是感兴趣的认真听一听，跟老师交流交流聊聊天；不感兴趣的、感觉跟自己未来没多大关系的就上课逛逛B站，跟社团的小伙伴们聊聊天，期末重点冲刺一下就行。</p>
+<p><strong>认真负责每一个自己接手的工作、新生，真诚对待所有身边善良的朋友</strong>。有时间跟他们聊一聊，如果处在迷茫期可以跟他们相互分享一下彼此的经历交个朋友。</p>
+<p>周末会自己骑着共享单车去学校附近的公园、郊区逛一逛，呼吸一下校园外的空气；或者召集三五好友一起去学校附近挑一家性价比合适的餐厅聚一聚；不想出门就安心窝在寝室刷刷手机，想想今天要宠幸steam游戏库里的哪款大作。</p>
+<p><strong>期末会拿着这一学期攒的比赛奖金，奖学金给自己买个小奖品；</strong>通常是自己非常想要但是又不便宜的东西，可能是一套录音设备，也可能是一个可爱的vector机器人。</p>
+<p>碰见秀恩爱的小情侣也会发自内心的祝福他们，并且也希望自己早日能遇到自己心怡的另一半。</p>
+<h2 id="在家"><a href="#在家" class="headerlink" title="在家"></a>在家</h2><p><strong>先是抽出假期的三分之一玩玩游戏从学校生活氛围里跳出来。</strong>比如找一个玩家素养过关的Minecraft小众私服玩一玩最新的模组；和服务器里的小伙伴们串串门，给三观正确的新人一些物资上的帮助（通常是以物换物、以劳换物，不会白送），和大家在群里吐槽服务器为什么又崩了，和其他养老阶段的大佬一起研究一下自己的新别墅怎么优化，模组自动化怎么设计等等…</p>
+<p>再之后就<strong>根据自己之前定的职业方向给假期剩余时间定一个短期计划进行集中学习和实践。</strong>比如搭建一个自己的网页啊、从0开始做一个数据库项目之类的。如果是编程语言就给自己找个简单又不简单的项目作为目标，一段时间内做出来；如果是读书就想起来这件事就翻两页，拿出之前比赛获得的笔记本简单记录一下亮点（经常只记几页就坚持不下去了），或者今天做项目又学会了哪些东西，解决了哪些bug，写个短语自己能看明白就好；也会因为在意字体而影响速度，<strong>不过本就是假期又何必那么急功近利呢？</strong></p>
+</article><!-- lincense--><div class="license-wrapper"><p> <span>Author:  </span><a href="http://yoursite.com">洪武</a></p><p> <span>Link:  </span><a href="http://yoursite.com/2020/03/29/%E4%B8%AA%E4%BA%BA%E4%BB%8B%E7%BB%8D/">http://yoursite.com/2020/03/29/%E4%B8%AA%E4%BA%BA%E4%BB%8B%E7%BB%8D/</a></p><p> <span>Copyright:  </span><span>All articles in this blog are licensed under <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/3.0" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.</span></p></div><div class="post-paginator"><a class="nextSlogan" href="/2020/03/28/%E5%8F%91%E5%B1%95%E8%A7%84%E5%88%92/" title="发展规划"><span>NextPost ></span><br><span class="nextTitle">发展规划</span></a><div class="clear"></div></div><div id="comment"></div></section></article><footer id="cxo-footer-outer"><div id="cxo-footer-inner"><p class="footer-container"><span>Site by </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span> | theme </span><a href="https://github.com/Longlongyu/hexo-theme-Cxo" target="_blank" rel="noopener"><span>Cxo</span></a></p><i class="fa fa-user"> </i><span id="busuanzi_value_site_uv"></span><span> | </span><i class="fa fa-eye"> </i><span id="busuanzi_value_site_pv"></span></div></footer><!-- catelog--><div class="toc-wrapper" style="top: 70vh;"><div class="toc-catalog"><i class="fa fa-list"> </i><span>CATALOG</span></div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#在学校"><span class="toc-number">1.</span> <span class="toc-text">在学校</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在家"><span class="toc-number">2.</span> <span class="toc-text">在家</span></a></li></ol></div><!-- top--><i class="fa fa-arrow-up close" id="go-up" aria-hidden="true"></i></body></html>
